@@ -1,0 +1,11 @@
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+<script src="/static/application.js"></script>
+
+<body>
+  <h1>Environment Information</h1>
+  <input type="hidden" value="{{ sensor }}" id="sensor">
+  <input type="hidden" value="{{ actuator }}" id="actuator">
+  <div style="display: grid;" id="info">
+    <span>esperando informações do sensor de {{sensor}} e {{actuator}}</span>
+  </div>
+</body>
