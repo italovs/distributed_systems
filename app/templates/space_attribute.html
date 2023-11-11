@@ -3,9 +3,12 @@
 
 <body>
   <h1>Environment Information</h1>
+  <input type="hidden" value="{{ type }}" id="type">
   <input type="hidden" value="{{ sensor }}" id="sensor">
   <input type="hidden" value="{{ actuator }}" id="actuator">
   <div style="display: grid;" id="info">
-    <span>esperando informações do sensor de {{sensor}} e {{actuator}}</span>
+    <div id="section">
+      <span>esperando informações do sensor de {{sensor}} e {{actuator}}</span>
+    </div>
   </div>
 </body>

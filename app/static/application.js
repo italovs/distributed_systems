@@ -4,16 +4,19 @@ window.onload = function() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const type = document.querySelector("input").value
+  const type = document.querySelector("#type").value
   socket.emit("subscribe", type)
 }, false);
 
 socket.on('data', (msg) => {
+  console.log(msg)
   const section = document.querySelector("#info");
-  section.removeChild(section.firstChild)
+  section.removeChild(section.firstElementChild)
 
   const span = document.createElement("span");
-  span_content = `Sensor: ${msg['sensor']['name']} ${msg['sensor']['value']}; |`
+  const div = document.createElement("div");
+
+  span_content = `Sensor: ${msg["sensor"]['name']} ${msg["sensor"]['value']}; |`
   span_content = span_content + ` Actuator: ${msg['actuator']['name']} state: ${msg['actuator']["value"]}; `
 
   if(msg['actuator']['name'] == "ar condicionado"){
@@ -21,5 +24,10 @@ socket.on('data', (msg) => {
   }
   span.innerHTML =  span_content
 
-  section.append(span);
+  div.append(span)
+  section.append(div);
 });
+
+socket.on('teste', (msg)=>{
+  console.log(msg)
+})

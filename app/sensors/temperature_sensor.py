@@ -1,4 +1,4 @@
-from app.sensors.base_sensor import BaseSensor
+from base_sensor import BaseSensor
 import json
 import random
 
