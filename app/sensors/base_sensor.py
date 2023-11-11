@@ -1,6 +1,7 @@
 from confluent_kafka import Producer
 from os import environ
 import time
+import json
 
 ip = environ.get("LOCAL_IP")
 port = environ.get("KAFKA_PORT")
@@ -12,6 +13,7 @@ class BaseSensor:
       "client.id": "sensor"
     }
 
+    self.value = ""
     self.name = name
     self.topic = topic
     self.producer = Producer(conf)
@@ -24,4 +26,17 @@ class BaseSensor:
       self.producer.poll()
 
   def change_values(self):
+    self.generate_value()
+    json_message = self.__build_json()
+    self.message = json.dumps(json_message)
+  
+  def __build_json(self):
+    return {
+      "sensor":{
+        "name": self.name,
+        "value": self.value,
+      }
+    }
+  
+  def generate_value(self):
     pass
