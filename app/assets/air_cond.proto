@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message AirCondStatus {
+  bool status = 1;
+  int32 temperature = 2;
+}
+
+message AirCondInfoParams {
+  optional int32 id = 1;
+}
+
+service AirCond {
+  rpc turnOn(AirCondStatus) returns (AirCondStatus) {}
+  rpc turnOff(AirCondStatus) returns (AirCondStatus) {}
+  rpc changeTemperature(AirCondStatus) returns (AirCondStatus) {}
+  rpc requestInfo(AirCondInfoParams) returns (AirCondStatus) {}
+}

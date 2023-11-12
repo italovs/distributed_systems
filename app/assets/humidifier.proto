@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message HumidifierStatus {
+  bool status = 1;
+}
+
+message HumidifierInfoParams {}
+
+service Humidifier {
+  rpc turnOn(HumidifierStatus) returns (HumidifierStatus) {}
+  rpc turnOff(HumidifierStatus) returns (HumidifierStatus) {}
+  rpc requestInfo(HumidifierInfoParams) returns (HumidifierStatus) {}
+}

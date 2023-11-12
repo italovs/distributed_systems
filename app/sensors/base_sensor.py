@@ -1,8 +1,10 @@
 from confluent_kafka import Producer
 from os import environ
+from dotenv import load_dotenv
 import time
 import json
 
+load_dotenv()
 ip = environ.get("LOCAL_IP")
 port = environ.get("KAFKA_PORT")
 

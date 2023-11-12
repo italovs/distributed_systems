@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message LampStatus {
+  bool status = 1;
+}
+
+message LampInfoParams {}
+
+service Lamp {
+  rpc turnOn(LampStatus) returns (LampStatus) {}
+  rpc turnOff(LampStatus) returns (LampStatus) {}
+  rpc requestInfo(LampInfoParams) returns (LampStatus) {}
+}

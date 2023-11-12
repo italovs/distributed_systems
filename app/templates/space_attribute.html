@@ -11,4 +11,18 @@
       <span>esperando informações do sensor de {{sensor}} e {{actuator}}</span>
     </div>
   </div>
+  <div>
+    <h2>Change actuator infos</h2>
+    <select id="status">
+      <option value="1">ON</option>
+      <option value="0">OFF</option>
+    </select>
+    <div>
+      {% if(type == "temperature" ) %}
+        <h3>temperature:</h3>
+        <input type="number" min="16" step="1" id="temperature">
+      {% endif %}
+    </div>
+    <input type="submit" id="submit" onclick="change_status()">
+  </div>
 </body>

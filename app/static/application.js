@@ -8,8 +8,26 @@ document.addEventListener('DOMContentLoaded', function() {
   socket.emit("subscribe", type)
 }, false);
 
+function change_status(){
+  let type = document.querySelector("#type").value
+  let status = document.querySelector("#status").value
+  let temperature_element = document.querySelector("#temperature")
+  let temperature = ""
+
+  if(temperature_element){
+    temperature = temperature_element.value
+  }
+
+  json = {
+    "name": type,
+    "status": status,
+    "temperature": temperature,
+  }
+
+  socket.emit("change_status", json)
+}
+
 socket.on('data', (msg) => {
-  console.log(msg)
   const section = document.querySelector("#info");
   section.removeChild(section.firstElementChild)
 
@@ -27,7 +45,3 @@ socket.on('data', (msg) => {
   div.append(span)
   section.append(div);
 });
-
-socket.on('teste', (msg)=>{
-  console.log(msg)
-})

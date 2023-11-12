@@ -6,7 +6,7 @@ class LuminositySensor(BaseSensor):
     super().__init__("luminosity", name)
   
   def generate_value(self):
-    self.value = random.randint(1,100)
+    self.value = random.randint(0,100)
 
 sensor = LuminositySensor("Luminosidade")
 sensor.run()

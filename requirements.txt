@@ -2,3 +2,4 @@ Flask==3.0.0
 Flask_SocketIO
 python-dotenv
 confluent_kafka
+protobuf
